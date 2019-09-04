@@ -1,10 +1,10 @@
 # RabbitMQ CLI
 
-## How it works?
+## Tool to send messages in a easy way
 
-### The CLI try to be smart.
+### The CLI try to be smart
 
-**features**:
+**Features**:
 
 - It can save specific files in our storage and when you send the same queue name, we can use this file.
 
