@@ -19,7 +19,7 @@ def connect(url):
 @click.option('--file', '-f', default='', type=str, help='Choose the json file.')
 @click.option('--save', '-s', default='', type=str, help='Save the json file.')
 @click.option('--manually', '-m', is_flag=True, default=False, type=bool, help='Write manually.')
-@click.option('--counter', '-c', default=1, type=int, help='Repeat # times')
+@click.option('--counter', '-c', default=1, type=int, help='Repeat # times.')
 def send(exchange, queue, file, save, manually, counter):
     """Sending a message to rabbitMQ Message"""
     for _ in range(0, counter):
