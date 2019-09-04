@@ -10,7 +10,7 @@ def __connect():
     except:
         raise NameError('Error to connect')
 
-def sendMessage(exchange, body):
+def sendMessage(exchange, queue, file, save, manually):
     channel = __connect()
     try:
         channel.basic_publish(
