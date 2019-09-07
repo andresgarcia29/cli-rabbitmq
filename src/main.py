@@ -2,6 +2,7 @@ import os
 import click
 import pika
 from rabbit import sendMessage
+from db import start_database
 
 @click.group()
 def cli():
@@ -22,4 +23,5 @@ def send(exchange, queue, file, save, manually, counter):
 cli.add_command(send)
 
 if __name__ == '__main__':
+    start_database()
     cli()
