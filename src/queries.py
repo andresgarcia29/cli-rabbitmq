@@ -1,0 +1,4 @@
+CREATE_TABLE = 'CREATE TABLE IF NOT EXISTS Queues(id INTEGER PRIMARY KEY AUTOINCREMENT, name TEXT, json TEXT)'
+SAVE_QUEUE = '''INSERT INTO Queues(name, json) VALUES(?, ?)'''
+GET_QUEUE = '''SELECT json FROM Queues WHERE name = ?'''
+UPDATE_QUEUE = '''UPDATE Queues SET json = ? WHERE name = ?'''
