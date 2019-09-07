@@ -3,20 +3,6 @@ from queries import CREATE_TABLE, SAVE_QUEUE, GET_QUEUE, UPDATE_QUEUE
 
 DB_NAME = 'db.db'
 
-def __create_connection():
-    try:
-        return sqlite3.connect(DB_NAME)
-    except:
-        raise NameError('Error to connect to the database')
-
-def __seed(connection):
-    try:
-        connection.cursor().execute(CREATE_TABLE)
-        connection.commit()
-        connection.close()
-    except NameError as e:
-        raise NameError('Error to create table queues: ' + str(e))
-
 def start_database():
     connection = __create_connection()
     __seed(connection)
@@ -48,3 +34,17 @@ def get_queue_json(queue):
         return json_result
     except NameError as e:
         raise NameError('Error to get query: ' + str(e))
+
+def __create_connection():
+    try:
+        return sqlite3.connect(DB_NAME)
+    except:
+        raise NameError('Error to connect to the database')
+
+def __seed(connection):
+    try:
+        connection.cursor().execute(CREATE_TABLE)
+        connection.commit()
+        connection.close()
+    except NameError as e:
+        raise NameError('Error to create table queues: ' + str(e))
