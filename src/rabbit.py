@@ -11,6 +11,7 @@ def sendMessage(exchange, queue, file, save, manually):
         channel.basic_publish(
                         exchange=__exchange_validator(exchange),
                         routing_key=queue,
+                        properties=pika.BasicProperties(delivery_mode = 2),
                         body=body
                     )
         channel.close()
@@ -31,7 +32,7 @@ def __verify_if_queue_exists(channel, queue):
         channel.queue_declare(
             queue=queue,
             passive=False,
-            durable=False,
+            durable=True,
             exclusive=False,
             auto_delete=False
         )
