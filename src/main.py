@@ -1,7 +1,7 @@
 import os
 import click
 import pika
-from rabbit import sendMessage
+from rabbit import send_message
 from db import start_database
 
 @click.group()
@@ -18,7 +18,7 @@ def cli():
 def send(exchange, queue, file, save, manually, counter):
     """Sending a message to rabbitMQ Message"""
     for _ in range(0, counter):
-        sendMessage(exchange, queue, file, save, manually)
+        send_message(exchange, queue, file, save, manually)
 
 cli.add_command(send)
 

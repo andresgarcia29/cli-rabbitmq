@@ -3,7 +3,7 @@ import json
 import pika
 from db import save_queue, get_queue_json, update_queue
 
-def sendMessage(exchange, queue, file, save, manually):
+def send_message(exchange, queue, file, save, manually):
     channel = __connect()
     __verify_if_queue_exists(channel, queue)
     body = __option_input_logic(queue, file, save, manually)
