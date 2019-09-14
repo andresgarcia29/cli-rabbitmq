@@ -27,6 +27,19 @@ def __connect():
     except:
         raise NameError('Error to connect')
 
+def listener_queue(queue, auto_ack):
+    channel = __connect()
+    __verify_if_queue_exists(channel, queue)
+    channel.basic_consume(
+        queue=queue,
+        auto_ack=auto_ack,
+        on_message_callback=__callback
+    )
+    channel.start_consuming()
+
+def __callback(ch, method, properties, body):
+    print('[x] Received: {0}'.format(body))
+
 def __verify_if_queue_exists(channel, queue):
     try:
         channel.queue_declare(
