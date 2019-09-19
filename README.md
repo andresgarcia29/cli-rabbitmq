@@ -24,8 +24,13 @@
   - --manually or -m: Type new values for the json file saved.
   - --counter or -c: Repeat # times.
 
+- **listener**
+  - --queue or -q: Choose the queue name.
+  - --auto or -a: Auto ack messages
+
 ### Future features
 
-- Listener
+- Listener ✓
 - Listen RPC answer
-- Delete everything
+- Share Database
+- Exporse RPC queues as API
