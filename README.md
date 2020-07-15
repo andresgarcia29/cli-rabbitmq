@@ -33,4 +33,4 @@
 - Listener ✓
 - Listen RPC answer
 - Share Database
-- Exporse RPC queues as API
+- Expose RPC queues as API
